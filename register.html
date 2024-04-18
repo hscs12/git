@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <title>김희선</title>
+</head>
+<body>
+    <h1>동아리 가입 양식</h1>
+</br>
+<form>
+   <label for="name">이름</label>
+   <input type="text" id="name" name="name" value=""></br>
+
+   <label for="majors">학부/학과</label>
+   <input list = "majors">
+   <datalist id="majors">
+       <option value="경영학부">
+       <option value="소프트웨어학부">
+       <option value="생명시스템학부">
+    </datalist></br>
+
+    <label for="grade">학년</label>
+    <input type ="radio" id="grade1" name="grade_sw" value="1학년">
+    <label for="grade1">1학년<lable>
+    <input type="radio" id="grade2" name="grade_sw" value="2학년">
+    <label for="grade1">2학년<lable>
+    <input type="radio" id="grade3" name="grade_sw" value="3학년">
+    <label for="grade1">3학년<lable>
+    <input type="radio" id="grade4" name="grade_sw" value="4학년">
+    <label for="grade1">4학년<lable>
+    </br>
+
+    <label for="student_number">학번</label>
+    <input type="number" id="student_number" name="student_number" value=""></br>
+
+    <label for="email">이메일</label>
+    <input type="email" id="email" name="email" placeholder="id@host"></br>
+
+    <label for="phone_number">이메일</label>
+    <input type="number" id="phone_number" name="phone_number" placeholder="010-1234-5678"></br>
+
+    <label for="motive">가입동기</label>
+    <textarea name="message"></textarea></br>
+
+    <input type="submit" value="가입하기">
+    <input type="reset" value="취소하기">
+</form>
+
+</body>
+</html>

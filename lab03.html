@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>HTML + CSS 실습 5</title>
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	
+	<header id="top_header">
+        <hgroup id="title">
+            <h1>한국 관광명소</h1>
+            <p>Korean tourist attractions</p>
+        </hgroup>
+        <nav >
+			<ul id="navi">
+				<li>
+                    <a href="#">서울 관광지 </a>
+					<ul class = "submenu">
+						<li><a href="#">경복궁</a></li>
+						<li><a href="#">남산타워</a></li>
+                    </ul>
+				</li>
+				<li>
+                    <a href="#">부산 관광지 </a>
+					<ul class = "submenu">
+						<li><a href="#">해운대</a></li>
+						<li><a href="#">국제시장</a></li>
+				  	</ul>
+				</li>
+				<li><a href="#">인천 관광지 </a></li>
+				<li><a href="#">제주 관광지 </a></li>
+			</ul>
+        </nav>
+    </header>
+
+	<aside id="login">
+		<form>
+			<label for="user">아이디</label>
+			<input type="text" id="user" size="15"><br>
+			<label for="pass">비밀번호</label>
+			<input type="password" id="pass" size="15"><br>
+			<input type="submit" value="로그인">
+			<input type="button" value="회원가입">
+		</form>			
+	</aside>
+
+	<aside id="ad">
+		<article>
+			<p>숙명여자대학교</p>
+			<p><img src="sm_logo.png" width="170"></p>
+			<p>컴퓨터과학과<br>웹시스템설계</p>
+		</article>
+		<article>
+			<p>ABC 쇼핑몰</p>
+			<p><img src="adv.jpg" width="170" height="60"></p>
+			<p>10% 할인 이벤트<br>	무료 배송</p>
+		</article>
+	</aside>
+	
+	<section id="post">
+		<article>
+			<div class="card">
+				<header>
+					<h3>경복궁 [ Gyeongbokgung Palace , 景福宮 ] </h3>
+				</header>
+				<figure>
+					<img src="tour-1.jpg" width="600">
+				</figure>
+				<p>조선 건국 후 1395(태조4)에 창건한 조선왕조 제일의 법궁으로, 백악산(북악산)을 주산으로 넓은 지형에 건물을 배치하였고 정문인 광화문 앞으로 넓은 육조거리가 펼쳐진 한양의 중심이었습니다. ‘경복’의 이름은 ‘새 왕조가 큰 복을 누려 번영할 것’이라는 의미가 담겨있으며, 이곳에서 세종 대에 훈민정음이 창제되어 반포되기도 하였습니다.</p>
+			</div> 
+		</article>
+		<article>
+			<div class="card">
+				<header>
+					<h3>남산서울타워 [ Namsan Seoul Tower , 南山- ]</h3>
+				</header>
+				<figure>
+					<img src="tour-2.jpg" width="600">
+				</figure>
+				<p>서울의 랜드마크이자 대표적인 관광 명소로, 서울특별시 용산구 남산공원길에 있는 N서울타워와 서울타워플라자를 통칭합니다. 해발고도 479.7m의 전망타워와 문화·상업 복합시설로 구성되어 있습니다.</p>
+			</div> 
+		</article>
+		<article>
+			<div class="card">
+				<header>
+					<h3>북촌한옥마을 [ Bukchon Hanok Village ]</h3>
+				</header>
+				<figure>
+					<img src="tour-3.jpg" width="600">
+				</figure>
+				<p>서울의 대표적인 한옥밀집지역으로, 다양한 역사문화자원, 박물관, 전통 공방, 한옥체험관 등이 들어서 있습니다. 특히 북촌한옥마을에는 북촌을 감상하기에 가장 좋은 지점인 '북촌 8경'이 지정돼 있는데,  각 지점 바닥에는 방문객들이 사진을 찍기에 좋은 사진촬영대(phot spot)를 설치해 놓았습니다.</p>
+			</div> 
+		</article>
+	</section>
+	
+	<footer>
+		<nav id="foot">
+			<ul>
+				<li><a href="#">회사 소개</a></li>
+				<li><a href="#">대표이사 인사말</a></li>
+				<li><a href="#">오시는 길</a></li>
+				<li><a href="#">광고주를 모집합니다.</a></li>
+			</ul>
+		</nav>	
+	</footer>
+</body>
+</html>
