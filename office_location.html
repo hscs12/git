@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>사무실 소개 (오시는 길)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-bottom: 2px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        header .home-icon {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+        nav {
+            background-color: #f8f8f8;
+            padding: 10px;
+            border-bottom: 2px solid #ccc;
+            position: relative;
+            z-index: 1000; /* 드롭다운 메뉴의 z-index 값을 높게 설정 */
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            position: relative;
+            z-index: 1000; /* 드롭다운 메뉴의 z-index 값을 높게 설정 */
+        }
+        nav ul li {
+            position: relative;
+            margin: 0 120px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+            padding: 10px;
+        }
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 0;
+            list-style: none;
+            z-index: 2000; /* 드롭다운 메뉴의 z-index 값을 더 높게 설정 */
+        }
+        nav ul li ul li {
+            width: 150px;
+            text-align: left;
+        }
+        nav ul li ul li a {
+            padding: 10px;
+            display: block;
+        }
+        nav ul li:hover ul {
+            display: block;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        aside {
+            width: 15%;
+            margin-right: 20px;
+        }
+        .promo-box {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .promo-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .main-content {
+            width: 75%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .map-container {
+            width: 60%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .map-container #googleMap {
+            width: 100%;
+            height: 700px;
+            z-index: 0; /* 지도의 z-index 값을 낮게 설정 */
+        }
+        .info-container {
+            width: 35%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .info-container h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>사무실 소개 (오시는 길)</h1>
+        <img src="home-icon.png" alt="Home" class="home-icon" onclick="location.href='main.html'">
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="#">Seoul</a>
+                <ul>
+                    <li><a href="seoul_intro.html">지역 소개</a></li>
+                    <li><a href="seoul_tour.html">관광지</a></li>
+                    <li><a href="seoul_food.html">식당 및 카페</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Jeju</a>
+                <ul>
+                    <li><a href="jeju_intro.html">지역 소개</a></li>
+                    <li><a href="jeju_tour.html">관광지</a></li>
+                    <li><a href="jeju_food.html">식당 및 카페</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Other</a>
+                <ul>
+                    <li><a href="office_location.html">사무실 위치</a></li>
+                    <li><a href="webpage_intro.html">웹페이지 소개</a></li>
+                    <li><a href="inquiry.html">문의사항</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <aside>
+            <div class="promo-box">
+                <h3>방문 예약시 할인!</h3>
+                <img src="promo1.jpg" alt="Promo 1">
+            </div>
+            <div class="promo-box">
+                <h3>특별 행사 중!</h3>
+                <img src="promo2.jpg" alt="Promo 2">
+            </div>
+        </aside>
+        <div class="main-content">
+            <div class="map-container">
+                <div id="googleMap"></div>
+            </div>
+            <div class="info-container">
+                <h2>주소 및 오시는 길: </h2><br><br>
+                <p><b>주소:</b><br> 서울특별시 용산구 청파로47길 100</p><br><br>
+                <p><b>오시는 길:</b><br> 숙명여자대학교 정문에서 직진 후 좌회전<br> 4호선</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>EMAIL: korea@sookmyung.ac.kr | Insta: intro_korea_sm | 고객센터: 02-000-0000</p>
+    </footer>
+    <script>
+        function initMap() {
+            var mapOptions = {
+                center: { lat: 37.5458498, lng: 126.9649337 },
+                zoom: 15
+            };
+            var map = new google.maps.Map(document.getElementById('googleMap'), mapOptions);
+            var marker = new google.maps.Marker({
+                position: { lat: 37.5458498, lng: 126.9649337 },
+                map: map,
+                title: '숙명여자대학교'
+            });
+        }
+        window.onload = initMap;
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAB4Gag9VQY7yhlcMa34t63XSNAny-_TxE&callback=initMap" async defer></script>
+</body>
+</html>
+
+
+

@@ -1,11 +1,238 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>메인 페이지</title>
+    <title>Dynamic Korea</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-bottom: 2px solid #ccc;
+            text-align: center;
+        }
+        nav {
+            background-color: #f8f8f8;
+            padding: 10px;
+            border-bottom: 2px solid #ccc;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            position: relative;
+            margin: 0 120px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+            padding: 10px;
+        }
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 0;
+            list-style: none;
+        }
+        nav ul li ul li {
+            width: 150px;
+            text-align: left;
+        }
+        nav ul li ul li a {
+            padding: 10px;
+            display: block;
+        }
+        nav ul li:hover ul {
+            display: block;
+        }
+        .flex-container {
+            display: flex;
+            flex-direction: row;
+            padding: 20px;
+        }
+        aside {
+            width: 15%;
+            padding: 20px;
+            background-color: #e6eff6;
+        }
+        aside form input[type="text"], aside form input[type="password"] {
+            width: 80%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        aside form input[type="submit"] {
+            width: 80%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        aside form input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+        .smwu-air-box {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 20px;
+            text-align: center;
+        }
+        main {
+            width: 80%;
+            padding: 20px;
+            background-color: #fff;
+        }
+        footer {
+            background-color: #f8f8f8;
+            text-align: center;
+            padding: 10px;
+            border-top: 2px solid #ccc;
+        }
+        footer p {
+            margin: 0 20px; /* 내용 간 간격 조정 */
+        }
+        .flex-container img {
+            width: 100%;
+            max-width: 300px;
+        }
+        hr {
+            border: none;
+            border-top: 2px solid #ccc;
+            margin: 20px 0;
+        }
+    </style>
 </head>
 <body>
-    
+    <header>
+        <h1>Dynamic Korea</h1>
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="#">Seoul</a>
+                <ul>
+                    <li><a href="seoul_intro.html">지역 소개</a></li>
+                    <li><a href="seoul_tour.html">관광지</a></li>
+                    <li><a href="seoul_food.html">식당 및 카페</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Jeju</a>
+                <ul>
+                    <li><a href="jeju_intro.html">지역 소개</a></li>
+                    <li><a href="jeju_tour.html">관광지</a></li>
+                    <li><a href="jeju_food.html">식당 및 카페</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Other</a>
+                <ul>
+                    <li><a href="office_location.html">사무실 위치</a></li>
+                    <li><a href="webpage_intro.html">웹페이지 소개</a></li>
+                    <li><a href="inquiry.html">문의사항</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="flex-container">
+        <aside>
+            <h3>LOGIN</h3>
+            <form id="loginForm">
+                <label for="name">NAME:</label><br>
+                <input type="text" id="name" name="name"><br>
+                <label for="pw">PW:</label><br>
+                <input type="password" id="pw" name="pw"><br><br>
+                <input type="submit" value="LOGIN">
+            </form>
+            <p id="welcomeMessage"></p><hr>
+            <div class="smwu-air-box">
+                <h3>smwu air</h3>
+                <p>한국으로 항공권 최대 50%</p>
+                <img src="광고_항공권.jpg" alt="Airplane">
+            </div>
+        </aside>
+        <main>
+            <h1>대한민국 Korea</h1><hr>
+            <img src="태극기.jpg" alt="Korean Flag">
+            <p>한국은 동아시아에 위치한 한반도의 남쪽에 있는 국가입니다. 정식 명칭은 대한민국(大韓民國, Republic of Korea)이며, 흔히 남한이라고도 불립니다. 북한과는 비무장지대(DMZ)를 경계로 두고 있으며, 동쪽으로는 일본해(동해), 서쪽으로는 황해, 남쪽으로는 동중국해에 접해 있습니다.</p>
+            
+            <h2>역사</h2>
+            <p>한국의 역사는 수천 년에 걸쳐 있으며, 고대 삼국시대(고구려, 백제, 신라)로 거슬러 올라갑니다. 918년에 고려 왕조가 설립되었고, 이후 1392년에 조선 왕조가 들어섰습니다. 1910년부터 1945년까지 일본의 식민지 지배를 받았고, 1945년 일본의 패망 후 한반도는 북위 38도를 기준으로 남북으로 나뉘어 미국과 소련에 의해 분할 점령되었습니다. 1950년에 발발한 한국 전쟁으로 인해 한반도는 크게 파괴되었으며, 전쟁 이후 대한민국은 급속한 경제 성장을 이루어냈습니다.</p>
+
+            <h2>정치</h2>
+            <p>대한민국은 대통령 중심제의 민주 공화국입니다. 대통령은 국가 원수이자 행정부의 수반으로서, 국민의 직접 선거로 선출됩니다. 국회는 단원제로 구성되어 있으며, 입법 기능을 담당합니다. 사법부는 독립적으로 운영되며, 대법원을 최고 법원으로 둡니다.</p>
+
+            <h2>경제</h2>
+            <p>대한민국은 세계에서 가장 빠르게 성장한 경제 중 하나로, 현재는 세계 10위권의 경제 대국입니다. 주요 산업으로는 반도체, 자동차, 조선, 전자, 화학, 철강 등이 있습니다. 특히 삼성전자, LG전자, 현대자동차 등 글로벌 기업들이 한국을 대표하고 있습니다. 또한, 한국은 K-팝, 드라마, 영화 등 문화 산업에서도 큰 성공을 거두며, 소프트 파워를 강화하고 있습니다.</p>
+
+            <h2>사회와 문화</h2>
+            <p>한국은 독특하고 풍부한 문화유산을 가지고 있습니다. 한글은 세종대왕이 창제한 독창적인 문자로, 세계적으로 그 우수성이 인정받고 있습니다. 한국 요리는 김치, 불고기, 비빔밥, 떡볶이 등 다양한 맛과 건강에 좋은 재료로 유명합니다.</p>
+            <p>한국 사회는 유교 사상에 기반을 둔 전통적인 가치관을 가지고 있으면서도, 현대적인 요소들이 혼합되어 있습니다. 교육열이 매우 높아 세계적으로 우수한 교육 시스템을 갖추고 있으며, 인터넷 보급률 및 IT 기술 수준 또한 세계 최고 수준입니다.</p>
+
+            <h2>자연환경</h2>
+            <p>한국은 사계절이 뚜렷한 기후를 가지고 있으며, 각 계절마다 다양한 자연 경관을 즐길 수 있습니다. 서울, 부산, 인천, 대구, 대전 등 대도시들이 있으며, 제주도, 설악산, 경주 등의 관광 명소도 많습니다. 한국의 산과 강, 바다 등은 자연을 사랑하는 사람들에게 많은 즐거움을 제공합니다.</p>
+
+            <h2>국제 관계</h2>
+            <p>대한민국은 유엔, 세계무역기구(WTO), 경제협력개발기구(OECD) 등의 국제 기구에 가입해 있으며, 세계 여러 나라와 외교 및 경제 관계를 유지하고 있습니다. 특히, 미국과의 동맹 관계는 한국의 안보와 경제에 중요한 역할을 하고 있습니다. 동시에 중국, 일본과도 경제적으로 밀접한 관계를 맺고 있습니다. 북한과의 관계는 지속적으로 변화하고 있으며, 통일에 대한 논의도 이어지고 있습니다.</p>
+
+            <p>한국은 독특한 역사와 문화, 그리고 경제적 성장을 이룬 국가로서, 세계 무대에서 중요한 역할을 하고 있습니다.</p>
+        </main>
+    </div>
+    <footer>
+        <p>EMAIL: korea@sookmyung.ac.kr | Insta: intro_korea_sm | 고객센터: 02-000-0000</p>
+    </footer>
+
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var name = document.getElementById('name').value;
+        var pw = document.getElementById('pw').value;
+        if (name && pw) {
+            document.cookie = "username=" + name + "; path=/";
+            document.getElementById('welcomeMessage').innerText = name + "님, 방문을 환영합니다.";
+        }
+    });
+
+    window.onload = function() {
+        var name = getCookie("username");
+        if (name) {
+            document.getElementById('welcomeMessage').innerText = name + "님, 방문을 환영합니다.";
+        }
+    };
+
+    function getCookie(name) {
+        var value = "; " + document.cookie;
+        var parts = value.split("; " + name + "=");
+        if (parts.length == 2) return parts.pop().split(";").shift();
+    }
+</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+

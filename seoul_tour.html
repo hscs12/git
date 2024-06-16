@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seoul: 관광지</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-bottom: 2px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        header .home-icon {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+        nav {
+            background-color: #f8f8f8;
+            padding: 10px;
+            border-bottom: 2px solid #ccc;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            position: relative;
+            margin: 0 120px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+            padding: 10px;
+        }
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 0;
+            list-style: none;
+        }
+        nav ul li ul li {
+            width: 150px;
+            text-align: left;
+        }
+        nav ul li ul li a {
+            padding: 10px;
+            display: block;
+        }
+        nav ul li:hover ul {
+            display: block;
+        }
+        .container {
+            padding: 20px;
+        }
+        .location {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+        .location img {
+            width: 80%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .location h2 {
+            margin-top: 20px;
+        }
+        .location p {
+            margin: 10px 0;
+        }
+        .locations {
+            display: flex;
+            flex-direction: column;
+        }
+        .location-content {
+            margin-left: 0;
+        }
+        .tour-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px 20px;
+            text-align: center;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .tour-button:hover {
+            background-color: #45a049;
+        }
+        footer {
+            background-color: #f8f8f8;
+            text-align: center;
+            padding: 10px;
+            border-top: 2px solid #ccc;
+        }
+        footer p {
+            margin: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Seoul: 관광지</h1>
+        <img src="홈아이콘.png" alt="Home" class="home-icon" onclick="location.href='main.html'">
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="#">Seoul</a>
+                <ul>
+                    <li><a href="seoul_intro.html">지역 소개</a></li>
+                    <li><a href="seoul_tour.html">관광지</a></li>
+                    <li><a href="seoul_food.html">식당 및 카페</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Jeju</a>
+                <ul>
+                    <li><a href="jeju_intro.html">지역 소개</a></li>
+                    <li><a href="jeju_tour.html">관광지</a></li>
+                    <li><a href="jeju_food.html">식당 및 카페</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Other</a>
+                <ul>
+                    <li><a href="office_location.html">사무실 위치</a></li>
+                    <li><a href="webpage_intro.html">웹페이지 소개</a></li>
+                    <li><a href="inquiry.html">문의사항</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="locations">
+            <div class="location">
+                <h1>1. 경복궁</h1>
+                <img src="경복궁.jpg" alt="경복궁">
+                <div class="location-content">
+                    <p>경복궁은 대한민국 서울특별시에 위치한 대표적인 고궁 중 하나로, 조선 왕조의 법궁(법으로 정해진 궁궐)입니다. 1395년 태조 이성계에 의해 지어졌으며, 조선 왕조의 정치, 문화, 경제의 중심지로서 중요한 역할을 했습니다. 경복궁의 이름은 '새로운 왕조가 크게 번성하라'는 뜻을 담고 있습니다. 다음은 경복궁의 주요 특징과 역사적 의미에 대한 설명입니다.</p>
+                    <p><strong>역사와 건축</strong></p>
+                    <p>창건과 발전: 1395년 창건: 조선 왕조의 창립자인 태조 이성계가 한양으로 천도하면서 경복궁을 건립했습니다. 이는 한양이 조선의 수도로서 자리 잡는 중요한 계기가 되었습니다.</p>
+                    <p>임진왜란: 1592년 임진왜란으로 인해 대부분의 건축물이 불타 없어졌습니다.</p>
+                    <p>흥선대원군의 재건: 1867년 고종의 아버지인 흥선대원군이 경복궁을 대대적으로 재건했습니다. 이 과정에서 많은 건물들이 새롭게 지어졌으며, 오늘날의 경복궁 모습이 형성되었습니다.</p>
+                    <p><strong>주요 건축물</strong></p>
+                    <p>근정전: 경복궁의 중심 건물로, 국왕의 공식적인 행사와 조회가 열리는 곳입니다. 웅장한 건축 양식과 화려한 장식이 돋보입니다.</p>
+                    <p>경회루: 연못 위에 세워진 2층 누각으로, 국왕이 연회를 열거나 외국 사신을 접견하던 장소입니다. 주변의 자연경관과 어우러져 아름다운 풍경을 자랑합니다.</p>
+                    <p>사정전: 왕이 일상적인 국정을 돌보던 장소로, 내각 대신들과 회의를 진행하던 곳입니다.</p>
+                    <p>강녕전: 왕의 침전으로 사용된 건물입니다. 왕의 일상 생활과 휴식을 위한 공간입니다.</p>
+                    <p>교태전: 왕비의 거처로, 왕비의 일상 생활과 휴식을 위한 공간입니다. 교태전 뒤편의 아미산과 아름다운 화단이 특징입니다.</p>
+                    <p><strong>문화적 의미</strong></p>
+                    <p>역사적 가치: 경복궁은 조선 왕조의 역사와 문화를 대표하는 중요한 유적지입니다. 조선의 정치, 경제, 사회적 변화를 이해하는 데 중요한 자료를 제공합니다.</p>
+                    <p>관광 명소: 오늘날 경복궁은 서울을 방문하는 관광객들에게 꼭 가봐야 할 명소 중 하나입니다. 궁궐 내부를 돌아보며 조선 왕조의 건축 양식과 문화를 체험할 수 있습니다.</p>
+                    <p>전통 행사: 경복궁에서는 정기적으로 전통 궁중 행사가 재현됩니다. 특히, 수문장 교대식은 많은 관광객들에게 인기가 있습니다.</p>
+                    <p>경복궁은 조선 왕조의 영광과 역경을 함께 담고 있는 장소로, 한국의 역사와 문화를 깊이 이해할 수 있는 중요한 유적지입니다. 고풍스러운 건축물과 아름다운 정원을 통해 과거의 왕조 시대를 체험하고, 한국의 전통 문화를 느낄 수 있는 특별한 경험을 선사합니다.</p>
+                </div>
+            </div>
+            <div class="location">
+                <h1>2. 북촌 한옥마을</h1>
+                <img src="북촌한옥마을.jpg" alt="북촌 한옥마을">
+                <div class="location-content">
+                    <p>북촌 한옥마을은 서울특별시 종로구에 위치한 전통 한옥마을로, 조선 시대부터 현대까지 이어져 온 한국의 전통 주거 문화를 체험할 수 있는 중요한 유적지입니다. 북촌은 경복궁, 창덕궁, 종묘 등 주요 고궁 사이에 위치해 있어 역사적 가치가 높고, 전통과 현대가 조화를 이루는 독특한 매력을 지니고 있습니다. 다음은 북촌 한옥마을의 주요 특징과 역사적 의미에 대한 설명입니다.</p>
+                    <p><strong>역사와 배경</strong></p>
+                    <p>조선 시대: 북촌 지역은 조선 시대 고관대작과 양반들이 모여 살던 곳으로, 정치적 중심지와 가까운 이유로 많은 사대부가들이 거주했습니다.</p>
+                    <p>현대: 20세기 초반부터 현대까지 이어져 내려오는 전통 한옥들이 보존되고 있으며, 한국의 전통 건축 양식을 유지하면서 현대적인 생활이 조화를 이루고 있습니다.</p>
+                    <p><strong>주요 특징</strong></p>
+                    <p>한옥 건축 양식: 전통 한옥: 북촌 한옥마을에는 수백 채의 전통 한옥이 잘 보존되어 있습니다. 한옥은 자연 재료인 나무, 흙, 기와 등을 사용하여 지어졌으며, 한국의 전통적인 건축 양식을 반영하고 있습니다.</p>
+                    <p>기와 지붕: 북촌 한옥의 특징 중 하나는 곡선이 아름다운 기와 지붕입니다. 이는 한옥의 미학적 요소 중 하나로, 자연과 조화를 이루는 디자인을 보여줍니다.</p>
+                    <p>마당과 사랑채: 한옥은 대개 안채, 사랑채, 마당 등으로 구성되어 있으며, 가족 간의 소통과 자연과의 교감을 중시합니다.</p>
+                    <p><strong>문화와 체험</strong></p>
+                    <p>문화 체험 프로그램: 북촌 한옥마을에서는 다양한 문화 체험 프로그램을 제공합니다. 한복 체험, 전통 다도 체험, 한지 공예, 전통 음식 만들기 등 다양한 활동을 통해 한국의 전통 문화를 체험할 수 있습니다.</p>
+                    <p>갤러리와 공방: 북촌에는 여러 전통 공예품 가게와 갤러리가 있어 한국의 예술과 공예를 감상하고 구매할 수 있습니다. 한지, 도자기, 목공예 등 다양한 전통 공예품을 만나볼 수 있습니다.</p>
+                    <p><strong>관광 명소</strong></p>
+                    <p>가회동: 북촌 한옥마을의 중심지로, 잘 보존된 한옥들이 모여 있어 사진 찍기 좋은 장소입니다. 좁은 골목길을 따라 걷다 보면 과거와 현재가 공존하는 풍경을 즐길 수 있습니다.</p>
+                    <p>북촌문화센터: 전통 문화와 역사를 배울 수 있는 공간으로, 다양한 전시와 교육 프로그램을 제공합니다.</p>
+                    <p>정독도서관: 옛 경기고등학교 자리에 세워진 도서관으로, 고즈넉한 분위기 속에서 독서를 즐길 수 있는 장소입니다.</p>
+                    <p>북촌 한옥마을은 한국의 전통과 문화를 깊이 체험할 수 있는 특별한 장소로, 서울을 방문하는 관광객들에게 꼭 추천할 만한 곳입니다. 고풍스러운 한옥과 아름다운 골목길을 거닐며 한국의 역사를 느끼고, 다양한 문화 체험을 통해 한국의 전통을 더욱 가까이에서 경험할 수 있습니다.</p>
+                </div>
+            </div>
+            <div class="location">
+                <h1>3. 남산타워</h1>
+                <img src="남산타워.jpg" alt="남산타워">
+                <div class="location-content">
+                    <p>남산타워, 공식 명칭은 N서울타워(N Seoul Tower), 서울의 중심부에 위치한 남산 위에 세워진 통신 및 관람 타워입니다. 1969년에 건설되었고, 1980년에 일반인에게 개방되었습니다. 남산타워는 서울을 대표하는 랜드마크 중 하나로, 아름다운 서울의 전경을 한눈에 내려다볼 수 있는 명소로 유명합니다.</p>
+                    <p><strong>주요 특징</strong></p>
+                    <p>전망대: 360도 전망: N서울타워의 전망대는 서울을 360도 파노라마 뷰로 감상할 수 있는 최고의 장소입니다. 날씨가 맑은 날에는 한강, 북한산, 경복궁 등 서울의 주요 명소들을 한눈에 볼 수 있습니다.</p>
+                    <p>야경: 특히, 밤에는 화려한 조명과 함께 서울의 아름다운 야경을 즐길 수 있어 로맨틱한 분위기를 자아냅니다.</p>
+                    <p>타워 조명: LED 조명 쇼: 타워의 외관은 LED 조명으로 꾸며져 있어, 시간대별로 다양한 색깔과 패턴의 조명 쇼를 감상할 수 있습니다. 이는 서울의 밤하늘을 더욱 화려하게 만듭니다.</p>
+                    <p><strong>문화와 체험</strong></p>
+                    <p>전시 및 공연: 타워 내부에는 다양한 전시 공간과 공연장이 마련되어 있어, 방문객들은 문화와 예술을 즐길 수 있습니다.</p>
+                    <p>디지털 전망대: 최신 기술을 활용한 디지털 전망대를 통해 서울의 주요 명소와 역사적 정보를 얻을 수 있습니다.</p>
+                    <p><strong>레스토랑과 카페</strong></p>
+                    <p>회전 레스토랑: N서울타워에는 회전 레스토랑이 있어, 식사를 하며 천천히 돌아가는 전망대를 통해 서울의 경관을 감상할 수 있습니다. 이 레스토랑은 특별한 날을 기념하기 좋은 장소입니다.</p>
+                    <p>카페: 전망을 즐기며 커피를 마실 수 있는 카페도 마련되어 있어 여유로운 시간을 보낼 수 있습니다.</p>
+                    <p><strong>사랑의 자물쇠</strong></p>
+                    <p>사랑의 자물쇠: 타워 주변에는 '사랑의 자물쇠' 명소가 있습니다. 연인들이 사랑의 메시지를 적은 자물쇠를 걸어두며 영원한 사랑을 약속하는 장소로, 수많은 자물쇠가 걸려 있는 광경을 볼 수 있습니다.</p>
+                    <p><strong>접근성과 교통</strong></p>
+                    <p>케이블카: 남산 케이블카를 이용하면 남산타워까지 편리하게 올라갈 수 있습니다. 케이블카를 타고 오르는 동안에도 서울의 경치를 즐길 수 있습니다.</p>
+                    <p>버스와 도보: 남산 순환 버스를 이용하거나 남산의 여러 등산로를 통해 도보로 올라갈 수도 있습니다. 다양한 루트로 접근이 가능하여 편리합니다.</p>
+                    <p><strong>역사와 상징성</strong></p>
+                    <p>남산타워는 단순한 통신 타워를 넘어서 서울의 발전과 변화를 상징하는 중요한 랜드마크로 자리매김했습니다. 서울 시민들과 관광객들에게 사랑받는 장소로, 다양한 이벤트와 축제가 열리며, 한국 드라마와 영화의 촬영지로도 자주 등장합니다.</p>
+                    <p>서울타워는 서울의 아름다운 경관을 감상하고, 다양한 문화 체험과 즐길 거리를 제공하는 종합 명소입니다. 낮과 밤, 계절에 따라 다양한 매력을 선사하며, 서울 여행에서 빼놓을 수 없는 필수 코스입니다. 가족, 연인, 친구와 함께 방문하여 특별한 추억을 만들기에 좋은 장소입니다.</p>
+                </div>
+            </div>
+        </div>
+        <a href="tour_rsvn.html" class="tour-button">투어 예약하러가기 >>></a>
+    </div>
+    <footer>
+        <p>EMAIL: korea@sookmyung.ac.kr | Insta: intro_korea_sm | 고객센터: 02-000-0000</p>
+    </footer>
+</body>
+</html>
+
+
+
+
+

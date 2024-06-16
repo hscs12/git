@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>웹페이지 소개</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-bottom: 2px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        header .home-icon {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+        nav {
+            background-color: #f8f8f8;
+            padding: 10px;
+            border-bottom: 2px solid #ccc;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            position: relative;
+            margin: 0 120px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+            padding: 10px;
+        }
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 0;
+            list-style: none;
+        }
+        nav ul li ul li {
+            width: 150px;
+            text-align: left;
+        }
+        nav ul li ul li a {
+            padding: 10px;
+            display: block;
+        }
+        nav ul li:hover ul {
+            display: block;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        aside {
+            width: 15%;
+            margin-right: 20px;
+        }
+        .promo-box {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .promo-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .main-content {
+            width: 75%;
+        }
+        .form-box {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .button-group button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .button-group button.submit {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .button-group button.cancel {
+            background-color: #f44336;
+            color: white;
+        }
+        footer {
+            background-color: #f8f8f8;
+            text-align: center;
+            padding: 10px;
+            border-top: 2px solid #ccc;
+        }
+        footer p {
+            margin: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>웹페이지 소개</h1>
+        <img src="홈아이콘.png" alt="Home" class="home-icon" onclick="location.href='main.html'">
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="#">Seoul</a>
+                <ul>
+                    <li><a href="seoul_intro.html">지역 소개</a></li>
+                    <li><a href="seoul_tour.html">관광지</a></li>
+                    <li><a href="seoul_food.html">식당 및 카페</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Jeju</a>
+                <ul>
+                    <li><a href="jeju_intro.html">지역 소개</a></li>
+                    <li><a href="jeju_tour.html">관광지</a></li>
+                    <li><a href="jeju_food.html">식당 및 카페</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Other</a>
+                <ul>
+                    <li><a href="office_location.html">사무실 위치</a></li>
+                    <li><a href="webpage_intro.html">웹페이지 소개</a></li>
+                    <li><a href="inquiry.html">문의사항</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <aside>
+            <div class="promo-box">
+                <h3>사무실 방문 신청</h3>
+                <form id="visitForm">
+                    <div class="form-group">
+                        <label for="visitName">이름</label>
+                        <input type="text" id="visitName" name="visitName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="visitPhone">연락처</label>
+                        <input type="text" id="visitPhone" name="visitPhone" placeholder="010-0000-0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="visitDate">방문 희망 날짜 및 시간</label>
+                        <input type="datetime-local" id="visitDate" name="visitDate" required>
+                    </div>
+                    <div class="button-group">
+                        <button type="submit" class="submit">방문 신청</button>
+                        <button type="button" class="cancel" onclick="document.getElementById('visitForm').reset();">취소</button>
+                    </div>
+                </form>
+            </div>
+        </aside>
+        <div class="main-content">
+            <div class="form-box">
+                <h2>기획자 소개</h2>
+                <p>기획자 소개 내용</p>
+            </div>
+            <div class="form-box">
+                <h2>웹페이지 기획 목적 및 기대효과 설명</h2>
+                <p>웹페이지 기획 목적 및 기대효과 설명 내용</p>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>EMAIL: korea@sookmyung.ac.kr | Insta: intro_korea_sm | 고객센터: 02-000-0000</p>
+    </footer>
+
+    <script>
+        document.getElementById('visitForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('방문 신청이 완료되었습니다! 연락드리겠습니다.');
+            document.getElementById('visitForm').reset();
+        });
+    </script>
+</body>
+</html>

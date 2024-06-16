@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관광지 투어 예약</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-bottom: 2px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        header .home-icon {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+        nav {
+            background-color: #f8f8f8;
+            padding: 10px;
+            border-bottom: 2px solid #ccc;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            position: relative;
+            margin: 0 120px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+            padding: 10px;
+        }
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 0;
+            list-style: none;
+        }
+        nav ul li ul li {
+            width: 150px;
+            text-align: left;
+        }
+        nav ul li ul li a {
+            padding: 10px;
+            display: block;
+        }
+        nav ul li:hover ul {
+            display: block;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            padding: 20px;
+        }
+        aside {
+            width: 15%;
+            margin-right: 20px;
+        }
+        .promo-box {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .promo-box img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .main-content {
+            width: 75%;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+        .form-group input[type="number"] {
+            width: auto;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+        }
+        .button-group button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .button-group button.submit {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .button-group button.cancel {
+            background-color: #f44336;
+            color: white;
+        }
+        footer {
+            background-color: #f8f8f8;
+            text-align: center;
+            padding: 10px;
+            border-top: 2px solid #ccc;
+        }
+        footer p {
+            margin: 0 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>관광지 투어 예약</h1>
+        <img src="홈아이콘.png" alt="Home" class="home-icon" onclick="location.href='main.html'">
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="#">Seoul</a>
+                <ul>
+                    <li><a href="seoul_intro.html">지역 소개</a></li>
+                    <li><a href="seoul_tour.html">관광지</a></li>
+                    <li><a href="seoul_food.html">식당 및 카페</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Jeju</a>
+                <ul>
+                    <li><a href="jeju_intro.html">지역 소개</a></li>
+                    <li><a href="jeju_tour.html">관광지</a></li>
+                    <li><a href="jeju_food.html">식당 및 카페</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Other</a>
+                <ul>
+                    <li><a href="office_location.html">사무실 위치</a></li>
+                    <li><a href="webpage_intro.html">웹페이지 소개</a></li>
+                    <li><a href="inquiry.html">문의사항</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <aside>
+            <div class="promo-box">
+                <h3>오늘 안에 예약할 경우 투어 할인권 지급!</h3>
+                <img src="광고_투어할인권.jpg" alt="promo1">
+            </div>
+            <div class="promo-box">
+                <h3>등산용 운동화 특가!</h3>
+                <img src="광고_운동화.jpg" alt="promo2">
+            </div>
+        </aside>
+        <div class="main-content">
+            <form id="reservationForm">
+                <h1>투어 예약</h1><br>
+                <div class="form-group">
+                    <label for="region">지역</label>
+                    <select id="region" name="region" required>
+                        <option value="">선택하세요</option>
+                        <option value="Seoul">서울</option>
+                        <option value="Jeju">제주</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="tourName">투어 이름</label>
+                    <select id="tourName" name="tourName" required>
+                        <option value="">선택하세요</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="name">예약자 이름</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">예약자 전화번호</label>
+                    <input type="text" id="phone" name="phone" placeholder="010-0000-0000" required>
+                </div>
+                <div class="form-group">
+                    <label for="people">투어 인원</label>
+                    <input type="number" id="people" name="people" min="1" max="10" required>
+                </div>
+                <div class="button-group">
+                    <button type="submit" class="submit">제출</button>
+                    <button type="button" class="cancel" onclick="document.getElementById('reservationForm').reset();">취소</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <p>EMAIL: korea@sookmyung.ac.kr | Insta: intro_korea_sm | 고객센터: 02-000-0000</p>
+    </footer>
+
+    <script>
+        document.getElementById('region').addEventListener('change', function() {
+            var tourNameSelect = document.getElementById('tourName');
+            tourNameSelect.innerHTML = '<option value="">선택하세요</option>';
+
+            if (this.value === 'Seoul') {
+                tourNameSelect.innerHTML += '<option value="Tour1">서울 투어1</option>';
+                tourNameSelect.innerHTML += '<option value="Tour2">서울 투어2</option>';
+            } else if (this.value === 'Jeju') {
+                tourNameSelect.innerHTML += '<option value="Tour1">제주 투어1</option>';
+                tourNameSelect.innerHTML += '<option value="Tour2">제주 투어2</option>';
+            }
+        });
+
+        document.getElementById('reservationForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            alert('예약이 성공적으로 완료되었습니다.');
+        });
+    </script>
+</body>
+</html>
+
+

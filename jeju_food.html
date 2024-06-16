@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeju: 식당 및 카페 추천</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #fff;
+            padding: 10px 20px;
+            border-bottom: 2px solid #ccc;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        header .home-icon {
+            width: 30px;
+            height: 30px;
+            cursor: pointer;
+        }
+        nav {
+            background-color: #f8f8f8;
+            padding: 10px;
+            border-bottom: 2px solid #ccc;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            position: relative;
+            margin: 0 120px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+            padding: 10px;
+        }
+        nav ul li ul {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 0;
+            list-style: none;
+        }
+        nav ul li ul li {
+            width: 150px;
+            text-align: left;
+        }
+        nav ul li ul li a {
+            padding: 10px;
+            display: block;
+        }
+        nav ul li:hover ul {
+            display: block;
+        }
+        .container {
+            padding: 20px;
+            display: flex;
+        }
+        .left-column {
+            width: 20%;
+            margin-right: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .left-column h2 {
+            margin-top: 0;
+        }
+        .right-column {
+            width: 75%;
+        }
+        .location {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .location img {
+            width: 150px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 8px;
+        }
+        .location h2 {
+            margin-top: 0;
+        }
+        .location p {
+            margin: 0;
+        }
+        .recommend-buttons {
+            display: flex;
+            align-items: center;
+        }
+        .recommend-buttons button {
+            padding: 5px 10px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .recommend-buttons button.recommend {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .recommend-buttons button.disrecommend {
+            background-color: #f44336;
+            color: white;
+        }
+        .recommend-buttons span {
+            margin: 0 5px;
+        }
+        footer {
+            background-color: #f8f8f8;
+            text-align: center;
+            padding: 10px;
+            border-top: 2px solid #ccc;
+        }
+        footer p {
+            margin: 0 20px;
+        }
+        .reserve-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 4px;
+            width: 200px;
+        }
+        .reserve-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Jeju: 식당 및 카페 추천</h1>
+        <img src="홈아이콘.png" alt="Home" class="home-icon" onclick="location.href='main.html'">
+    </header>
+    <nav>
+        <ul>
+            <li>
+                <a href="#">Seoul</a>
+                <ul>
+                    <li><a href="seoul_intro.html">지역 소개</a></li>
+                    <li><a href="seoul_tour.html">관광지</a></li>
+                    <li><a href="seoul_food.html">식당 및 카페</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Jeju</a>
+                <ul>
+                    <li><a href="jeju_intro.html">지역 소개</a></li>
+                    <li><a href="jeju_tour.html">관광지</a></li>
+                    <li><a href="jeju_food.html">식당 및 카페</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Other</a>
+                <ul>
+                    <li><a href="office_location.html">사무실 위치</a></li>
+                    <li><a href="webpage_intro.html">웹페이지 소개</a></li>
+                    <li><a href="inquiry.html">문의사항</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <div class="left-column">
+            <h2>배송 가능 지역 확인</h2>
+            <p>선택된 식당 : <span id="selected-restaurant">없음</span></p>
+            <p>배송 위치 : <input type="text" id="delivery-location" placeholder="지역 입력"> <button onclick="checkDelivery()">확인</button></p>
+            <p id="delivery-result"></p>
+        </div>
+        <div class="right-column">
+            <div class="location" onclick="selectRestaurant('식당1')">
+                <div>
+                    <h2>식당1</h2>
+                    <img src="식당1.jpg" alt="식당1">
+                    <p>식당1 설명</p>
+                </div>
+                <div class="recommend-buttons">
+                    <button class="recommend" onclick="recommend(event, 'r1')">추천</button>
+                    <span id="recommend-count-r1">0</span>
+                    <button class="disrecommend" onclick="disrecommend(event, 'r1')">비추천</button>
+                    <span id="disrecommend-count-r1">0</span>
+                </div>
+            </div>
+            <div class="location" onclick="selectRestaurant('식당2')">
+                <div>
+                    <h2>식당2</h2>
+                    <img src="식당2.jpg" alt="식당2">
+                    <p>식당2 설명</p>
+                </div>
+                <div class="recommend-buttons">
+                    <button class="recommend" onclick="recommend(event, 'r2')">추천</button>
+                    <span id="recommend-count-r2">0</span>
+                    <button class="disrecommend" onclick="disrecommend(event, 'r2')">비추천</button>
+                    <span id="disrecommend-count-r2">0</span>
+                </div>
+            </div>
+            <a href="restaurant_rsvn.html" class="reserve-button">식당 예약하러가기 &gt;&gt;&gt;</a>
+        </div>
+    </div>
+    <footer>
+        <p>EMAIL: korea@sookmyung.ac.kr | Insta: intro_korea_sm | 고객센터: 02-000-0000</p>
+    </footer>
+
+    <script>
+        function getLocalStorageItem(key, defaultValue) {
+            return localStorage.getItem(key) ? parseInt(localStorage.getItem(key)) : defaultValue;
+        }
+
+        function setLocalStorageItem(key, value) {
+            localStorage.setItem(key, value);
+        }
+
+        function updateCounts() {
+            document.getElementById('recommend-count-r1').innerText = getLocalStorageItem('recommend-r1', 0);
+            document.getElementById('disrecommend-count-r1').innerText = getLocalStorageItem('disrecommend-r1', 0);
+            document.getElementById('recommend-count-r2').innerText = getLocalStorageItem('recommend-r2', 0);
+            document.getElementById('disrecommend-count-r2').innerText = getLocalStorageItem('disrecommend-r2', 0);
+        }
+
+        function recommend(event, key) {
+            event.stopPropagation();
+            if (!localStorage.getItem('voted-' + key)) {
+                let count = getLocalStorageItem('recommend-' + key, 0) + 1;
+                setLocalStorageItem('recommend-' + key, count);
+                setLocalStorageItem('voted-' + key, 'recommend');
+                updateCounts();
+            } else {
+                alert('이미 투표하셨습니다.');
+            }
+        }
+
+        function disrecommend(event, key) {
+            event.stopPropagation();
+            if (!localStorage.getItem('voted-' + key)) {
+                let count = getLocalStorageItem('disrecommend-' + key, 0) + 1;
+                setLocalStorageItem('disrecommend-' + key, count);
+                setLocalStorageItem('voted-' + key, 'disrecommend');
+                updateCounts();
+            } else {
+                alert('이미 투표하셨습니다.');
+            }
+        }
+
+        function selectRestaurant(name) {
+            document.getElementById('selected-restaurant').innerText = name;
+        }
+
+        function checkDelivery() {
+            const selectedRestaurant = document.getElementById('selected-restaurant').innerText;
+            const location = document.getElementById('delivery-location').value;
+            const deliveryResult = document.getElementById('delivery-result');
+            const deliveryAreas = ['한경', '한림', '애월', '제주', '조천', '구좌', '성산', '표선', '남원', '서귀포', '안덕', '대정'];
+            const isDeliveryAvailable = deliveryAreas.some(area => location.includes(area));
+
+            if (selectedRestaurant === '없음') {
+                alert('먼저 식당을 선택해주세요.');
+            } else if (isDeliveryAvailable) {
+                deliveryResult.innerText = `${selectedRestaurant}에서는 ${location}으로 배송이 가능합니다.`;
+            } else {
+                deliveryResult.innerText = `${selectedRestaurant}에서는 ${location}으로는 배송이 불가능합니다.`;
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            updateCounts();
+        });
+    </script>
+</body>
+</html>
+
+
+
+
