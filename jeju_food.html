@@ -177,6 +177,7 @@
         .selected {
             border: 2px solid #4CAF50;
         }
+
     </style>
 </head>
 <body>
@@ -322,6 +323,30 @@
             updateCounts();
         } else {
             alert('이미 투표하셨습니다.');
+        }
+    }
+    function selectRestaurant(name) {
+        document.getElementById('selected-restaurant').innerText = name;
+        let locations = document.querySelectorAll('.location');
+        locations.forEach(location => {
+            location.classList.remove('selected');
+        });
+        event.currentTarget.classList.add('selected');
+    }
+    
+    function checkDelivery() {
+        const selectedRestaurant = document.getElementById('selected-restaurant').innerText;
+        const location = document.getElementById('delivery-location').value;
+        const deliveryResult = document.getElementById('delivery-result');
+        const deliveryAreas = ['한경', '한림', '애월', '제주', '조천', '구좌', '성산', '표선', '남원', '서귀포', '안덕', '대정'];
+        const isDeliveryAvailable = deliveryAreas.some(area => location.includes(area));
+    
+        if (selectedRestaurant === '없음') {
+            alert('먼저 식당을 선택해주세요.');
+        } else if (isDeliveryAvailable) {
+            deliveryResult.innerText = `${selectedRestaurant}에서는 ${location}으로 배송이 가능합니다.`;
+        } else {
+            deliveryResult.innerText = `${selectedRestaurant}에서는 ${location}으로는 배송이 불가능합니다.`;
         }
     }
 

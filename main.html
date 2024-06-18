@@ -179,7 +179,7 @@
                 <form id="loginForm">
                     <label for="name">NAME:</label><br>
                     <input type="text" id="name" name="name"><br>
-                    <label for="pw">PW:</label><br>
+                    <label for="pw">회원번호:</label><br>
                     <input type="password" id="pw" name="pw"><br><br>
                     <input type="submit" value="LOGIN">
                 </form>
@@ -238,8 +238,8 @@
             document.getElementById('welcomeMessage').innerText = "";
             document.getElementById('loginFormContainer').classList.remove('hidden');
             document.getElementById('logoutButton').classList.add('hidden');
-            document.getElementById('name').value = ''; // 이름 입력 칸 비우기
-            document.getElementById('pw').value = ''; // 비밀번호 입력 칸 비우기
+            document.getElementById('name').value = ''; 
+            document.getElementById('pw').value = ''; 
         }
     
         window.onload = function() {
