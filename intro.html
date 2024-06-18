@@ -5,6 +5,10 @@
     <title>시작 페이지</title>
     <link rel="stylesheet" href="styles.css">
     <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
         .welcome {
             position: absolute;
             top: 50%;
@@ -14,6 +18,31 @@
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .welcome h1 {
+            margin: 0 0 20px;
+        }
+        .welcome button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .welcome button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+        .welcome button:active {
+            background-color: #388E3C;
+            transform: scale(1);
+        }
+        .welcome button:focus {
+            outline: none;
         }
     </style>
 </head>
@@ -25,6 +54,7 @@
     </div>
 </body>
 </html>
+
 
 
 

@@ -85,6 +85,23 @@
         .left-column h2 {
             margin-top: 0;
         }
+        .left-column .delivery-input {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .left-column .delivery-input input {
+            flex: 1;
+            margin-right: 10px;
+        }
+        .left-column .delivery-input button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
         .right-column {
             width: 75%;
         }
@@ -98,6 +115,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            cursor: pointer;
         }
         .location img {
             width: 150px;
@@ -156,6 +174,9 @@
         .reserve-button:hover {
             background-color: #45a049;
         }
+        .selected {
+            border: 2px solid #4CAF50;
+        }
     </style>
 </head>
 <body>
@@ -193,17 +214,27 @@
     </nav>
     <div class="container">
         <div class="left-column">
-            <h2>배송 가능 지역 확인</h2>
-            <p>선택된 식당 : <span id="selected-restaurant">없음</span></p>
-            <p>배송 위치 : <input type="text" id="delivery-location" placeholder="지역 입력"> <button onclick="checkDelivery()">확인</button></p>
+            <h2>배송 가능 지역 확인</h2><br>
+            <p>선택된 식당 : <span id="selected-restaurant">없음</span></p><br>
+            <div class="delivery-input">
+                <input type="text" id="delivery-location" placeholder="지역 입력">
+                <button onclick="checkDelivery()">확인</button>
+            </div>
             <p id="delivery-result"></p>
         </div>
         <div class="right-column">
-            <div class="location" onclick="selectRestaurant('식당1')">
+            <div class="location" onclick="selectRestaurant('춘심이네 본점')">
                 <div>
-                    <h2>식당1</h2>
-                    <img src="식당1.jpg" alt="식당1">
-                    <p>식당1 설명</p>
+                    <h2>춘심이네 본점</h2>: 제주 서귀포시 1m 갈치 맛집! 손질도 모두 해드립니다!<br><br>
+                    <img src="제주_식당1(1).jpg" alt="제주식당1-1">
+                    <img src="제주_식당1(2).jpg" alt="제주식당1-2"><hr>
+                    <ul>
+                        <li>주소ㅣ 제주 서귀포시 안덕면 창천중앙로24번길 16 1층 춘심이네 본점</li>
+                        <li>영업시간ㅣ  매일 10:30 - 21:00 (20:00 라스트오더)</li>
+                        <li>전화번호ㅣ 0507-1420-4018</li>
+                        <li>맛있는녀석들 169회, 18.05.18 갈치구이<br>생방송오늘저녁 762회, 18.01.09 갈치구이<br>생생정보통 982회, 14.10.31 갈치구이<br>VJ특공대 700회, 14.02.07 통갈치구이<br></li>
+                        <li>주차 / 무선 인터넷 / 단체 이용 가능 / 포장 가능 O </li>
+                    </ul>
                 </div>
                 <div class="recommend-buttons">
                     <button class="recommend" onclick="recommend(event, 'r1')">추천</button>
@@ -212,11 +243,18 @@
                     <span id="disrecommend-count-r1">0</span>
                 </div>
             </div>
-            <div class="location" onclick="selectRestaurant('식당2')">
+            <div class="location" onclick="selectRestaurant('Jimmys natural icecream')">
                 <div>
-                    <h2>식당2</h2>
-                    <img src="식당2.jpg" alt="식당2">
-                    <p>식당2 설명</p>
+                    <h2>Jimmys natural icecream</h2> : 제주 우도 원조 땅콩 아이스크림 맛집!<br><br>
+                    <img src="제주_식당2(1).jpg" alt="제주식당2-1">
+                    <img src="제주_식당2(2).jpg" alt="제주식당2-2"><hr>
+                    <ul>
+                        <li>주소ㅣ 제주 제주시 우도면 우도해안길 1132</li>
+                        <li>영업시간ㅣ  매일 08:00 - 18:10</li>
+                        <li>전화번호ㅣ 010-9868-8633</li>
+                        <li>2TV생생정보 894회, 19.09.03.2019년 9월 3일 땅콩아이스크림</li>
+                        <li>주차, 무선 인터넷 O </li>
+                    </ul>
                 </div>
                 <div class="recommend-buttons">
                     <button class="recommend" onclick="recommend(event, 'r2')">추천</button>
@@ -229,7 +267,7 @@
         </div>
     </div>
     <footer>
-        <p>EMAIL: korea@sookmyung.ac.kr | Insta: intro_korea_sm | 고객센터: 02-000-0000</p>
+        <p>EMAIL: korea@sookmyung.ac.kr &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Insta: intro_korea_sm &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 고객센터: 02-000-0000</p>
     </footer>
 
     <script>
@@ -274,6 +312,11 @@
 
         function selectRestaurant(name) {
             document.getElementById('selected-restaurant').innerText = name;
+            let locations = document.querySelectorAll('.location');
+            locations.forEach(location => {
+                location.classList.remove('selected');
+            });
+            event.currentTarget.classList.add('selected');
         }
 
         function checkDelivery() {
@@ -298,6 +341,16 @@
     </script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
 
 
 

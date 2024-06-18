@@ -244,7 +244,7 @@
         </div>
     </div>
     <footer>
-        <p>EMAIL: korea@sookmyung.ac.kr | Insta: intro_korea_sm | 고객센터: 02-000-0000</p>
+        <p>EMAIL: korea@sookmyung.ac.kr &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Insta: intro_korea_sm &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 고객센터: 02-000-0000</p>
     </footer>
 
     <script>
@@ -253,17 +253,51 @@
             restaurantSelect.innerHTML = '<option value="">선택하세요</option>';
 
             if (this.value === 'Seoul') {
-                restaurantSelect.innerHTML += '<option value="Restaurant1">서울 식당1</option>';
-                restaurantSelect.innerHTML += '<option value="Restaurant2">서울 식당2</option>';
+                restaurantSelect.innerHTML += '<option value="Restaurant1">삼원가든</option>';
+                restaurantSelect.innerHTML += '<option value="Restaurant2">남포면옥</option>';
             } else if (this.value === 'Jeju') {
-                restaurantSelect.innerHTML += '<option value="Restaurant1">제주 식당1</option>';
-                restaurantSelect.innerHTML += '<option value="Restaurant2">제주 식당2</option>';
+                restaurantSelect.innerHTML += '<option value="Restaurant1">춘심이네 본점</option>';
+                restaurantSelect.innerHTML += '<option value="Restaurant2">Jimmys natural icecream</option>';
             }
         });
 
+        // 쿠키 설정 함수
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+        }
+
+        // 쿠키 가져오기 함수
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0;i < ca.length;i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1,c.length);
+                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+            }
+            return null;
+        }
+
+        // 모든 예약 정보 가져오기
+        function getReservations() {
+            var reservations = getCookie('reservations');
+            return reservations ? JSON.parse(reservations) : [];
+        }
+
+        // 모든 예약 정보 저장하기
+        function saveReservations(reservations) {
+            setCookie('reservations', JSON.stringify(reservations), 7); // 7일 동안 쿠키 저장
+        }
+
         document.getElementById('reservationForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            var reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+            var reservations = getReservations();
             
             var newReservation = {
                 region: document.getElementById('region').value,
@@ -275,14 +309,14 @@
             };
 
             reservations.push(newReservation);
-            localStorage.setItem('reservations', JSON.stringify(reservations));
+            saveReservations(reservations);
             alert('예약이 성공적으로 완료되었습니다.');
             document.getElementById('reservationForm').reset();
         });
 
         function lookupReservation() {
             var lookupName = document.getElementById('lookupName').value;
-            var reservations = JSON.parse(localStorage.getItem('reservations')) || [];
+            var reservations = getReservations();
             var resultText = '';
             
             var reservation = reservations.find(r => r.name === lookupName);
@@ -298,5 +332,6 @@
     </script>
 </body>
 </html>
+
 
 

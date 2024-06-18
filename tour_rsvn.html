@@ -177,7 +177,7 @@
     <div class="container">
         <aside>
             <div class="promo-box">
-                <h3>오늘 안에 예약할 경우 투어 할인권 지급!</h3>
+                <h3>오늘 투어 예약할 경우, 투어 할인권 지급!</h3>
                 <img src="광고_투어할인권.jpg" alt="promo1">
             </div>
             <div class="promo-box">
@@ -222,7 +222,7 @@
         </div>
     </div>
     <footer>
-        <p>EMAIL: korea@sookmyung.ac.kr | Insta: intro_korea_sm | 고객센터: 02-000-0000</p>
+        <p>EMAIL: korea@sookmyung.ac.kr &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Insta: intro_korea_sm &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 고객센터: 02-000-0000</p>
     </footer>
 
     <script>
@@ -231,17 +231,18 @@
             tourNameSelect.innerHTML = '<option value="">선택하세요</option>';
 
             if (this.value === 'Seoul') {
-                tourNameSelect.innerHTML += '<option value="Tour1">서울 투어1</option>';
-                tourNameSelect.innerHTML += '<option value="Tour2">서울 투어2</option>';
+                tourNameSelect.innerHTML += '<option value="Tour1">경복궁 무료해설투어</option>';
+                tourNameSelect.innerHTML += '<option value="Tour2">서울 시티투어버스(남산타워 포함)</option>';
             } else if (this.value === 'Jeju') {
-                tourNameSelect.innerHTML += '<option value="Tour1">제주 투어1</option>';
-                tourNameSelect.innerHTML += '<option value="Tour2">제주 투어2</option>';
+                tourNameSelect.innerHTML += '<option value="Tour1">성산일출봉 보트 투어</option>';
+                tourNameSelect.innerHTML += '<option value="Tour2">우도 스쿠터 투어</option>';
             }
         });
 
         document.getElementById('reservationForm').addEventListener('submit', function(event) {
             event.preventDefault();
             alert('예약이 성공적으로 완료되었습니다.');
+            document.getElementById('reservationForm').reset();
         });
     </script>
 </body>
