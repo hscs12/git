@@ -261,7 +261,6 @@
             }
         });
 
-        // 쿠키 설정 함수
         function setCookie(name, value, days) {
             var expires = "";
             if (days) {
@@ -272,7 +271,6 @@
             document.cookie = name + "=" + (value || "")  + expires + "; path=/";
         }
 
-        // 쿠키 가져오기 함수
         function getCookie(name) {
             var nameEQ = name + "=";
             var ca = document.cookie.split(';');
@@ -284,15 +282,13 @@
             return null;
         }
 
-        // 모든 예약 정보 가져오기
         function getReservations() {
             var reservations = getCookie('reservations');
             return reservations ? JSON.parse(reservations) : [];
         }
 
-        // 모든 예약 정보 저장하기
         function saveReservations(reservations) {
-            setCookie('reservations', JSON.stringify(reservations), 7); // 7일 동안 쿠키 저장
+            setCookie('reservations', JSON.stringify(reservations), 7); 
         }
 
         document.getElementById('reservationForm').addEventListener('submit', function(event) {
