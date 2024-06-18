@@ -206,8 +206,8 @@
                     </div>
                     <div class="form-group">
                         <div class="radio-group">
-                            <label><input type="radio" name="type" value="관광지" required> 관광지</label>
-                            <label><input type="radio" name="type" value="식당"> 식당</label>
+                            <label><input type="radio" name="type" value="관광지" required> &emsp;&emsp;관광지</label>
+                            <label><input type="radio" name="type" value="식당"> &emsp;&emsp;식당</label>
                         </div>
                     </div>
                     <div class="form-group">
@@ -240,28 +240,24 @@
     <footer>
         <p>EMAIL: korea@sookmyung.ac.kr &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Insta: intro_korea_sm &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 고객센터: 02-000-0000</p>
     </footer>
-
-    <script>
-        document.getElementById('regionRequestForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            if (!document.querySelector('input[name="type"]:checked')) {
-                alert('목록에서 항목을 선택하세요');
-                return;
-            }
-            alert('소중한 의견 감사합니다.');
-            document.getElementById('feedback1').innerText = '소중한 의견 감사합니다.';
-        });
-
-        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            alert('피드백 감사합니다. 더 나은 페이지로 뵙겠습니다.');
-            document.getElementById('feedback2').innerText = '피드백 감사합니다. 더 나은 페이지로 뵙겠습니다.';
-        });
-    </script>
+<script>
+    document.getElementById('regionRequestForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        if (!document.querySelector('input[name="type"]:checked')) {
+            alert('목록에서 항목을 선택하세요');
+            return;
+        }
+        alert('소중한 의견 감사합니다.');
+        document.getElementById('feedback1').innerText = '소중한 의견 감사합니다.';
+        this.reset();
+    });
+document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+    alert('피드백 감사합니다. 더 나은 페이지로 뵙겠습니다.');
+    document.getElementById('feedback2').innerText = '피드백 감사합니다. 더 나은 페이지로 뵙겠습니다.';
+    this.reset();
+});
+</script>
 </body>
 </html>
-
-
-
-
 
