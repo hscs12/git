@@ -191,7 +191,7 @@
         <div class="main-content">
             <div class="form-box">
                 <form id="reservationForm">
-                    <h2>식당 예약</h2>
+                    <h2>식당 예약</h2><hr>
                     <div class="form-group">
                         <label for="region">지역:</label>
                         <select id="region" name="region" required>
@@ -230,7 +230,7 @@
             </div>
             <div class="form-box">
                 <form id="lookupForm">
-                    <h2>식당 예약자 조회</h2>
+                    <h2>식당 예약자 조회</h2><hr>
                     <div class="form-group">
                         <label for="lookupName">예약자 이름:</label>
                         <input type="text" id="lookupName" name="lookupName" required>
@@ -246,8 +246,6 @@
     <footer>
         <p>EMAIL: korea@sookmyung.ac.kr &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Insta: intro_korea_sm &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 고객센터: 02-000-0000</p>
     </footer>
-php
-코드 복사
 <script>
     document.getElementById('region').addEventListener('change', function() {
         var restaurantSelect = document.getElementById('restaurantName');
