@@ -246,88 +246,91 @@
     <footer>
         <p>EMAIL: korea@sookmyung.ac.kr &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; Insta: intro_korea_sm &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;|&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp; 고객센터: 02-000-0000</p>
     </footer>
+php
+코드 복사
+<script>
+    document.getElementById('region').addEventListener('change', function() {
+        var restaurantSelect = document.getElementById('restaurantName');
+        restaurantSelect.innerHTML = '<option value="">선택하세요</option>';
 
-    <script>
-        document.getElementById('region').addEventListener('change', function() {
-            var restaurantSelect = document.getElementById('restaurantName');
-            restaurantSelect.innerHTML = '<option value="">선택하세요</option>';
+        if (this.value === 'Seoul') {
+            restaurantSelect.innerHTML += '<option value="Restaurant1">삼원가든</option>';
+            restaurantSelect.innerHTML += '<option value="Restaurant2">남포면옥</option>';
+        } else if (this.value === 'Jeju') {
+            restaurantSelect.innerHTML += '<option value="Restaurant1">춘심이네 본점</option>';
+            restaurantSelect.innerHTML += '<option value="Restaurant2">Jimmys natural icecream</option>';
+        }
+    });
 
-            if (this.value === 'Seoul') {
-                restaurantSelect.innerHTML += '<option value="Restaurant1">삼원가든</option>';
-                restaurantSelect.innerHTML += '<option value="Restaurant2">남포면옥</option>';
-            } else if (this.value === 'Jeju') {
-                restaurantSelect.innerHTML += '<option value="Restaurant1">춘심이네 본점</option>';
-                restaurantSelect.innerHTML += '<option value="Restaurant2">Jimmys natural icecream</option>';
-            }
-        });
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    }
 
-        function setCookie(name, value, days) {
-            var expires = "";
-            if (days) {
-                var date = new Date();
-                date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                expires = "; expires=" + date.toUTCString();
-            }
-            document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+
+    function getReservations() {
+        var reservations = getCookie('reservations');
+        return reservations ? JSON.parse(reservations) : [];
+    }
+
+    function saveReservations(reservations) {
+        setCookie('reservations', JSON.stringify(reservations), 7); 
+    }
+
+    document.getElementById('reservationForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        var reservations = getReservations();
+        
+        var newReservation = {
+            region: document.getElementById('region').value,
+            restaurantName: document.getElementById('restaurantName').value,
+            date: document.getElementById('date').value,
+            name: document.getElementById('name').value,
+            phone: document.getElementById('phone').value,
+            people: document.getElementById('people').value
+        };
+
+        reservations.push(newReservation);
+        saveReservations(reservations);
+        alert('예약이 성공적으로 완료되었습니다.');
+        document.getElementById('reservationForm').reset();
+    });
+
+    function lookupReservation() {
+        var lookupName = document.getElementById('lookupName').value;
+        var reservations = getReservations();
+        var resultText = '';
+        
+        var reservation = reservations.find(r => r.name === lookupName);
+
+        if (reservation) {
+            resultText = `${reservation.name}님, 예약 확인 되었습니다.<br>예약 날짜: ${reservation.date}<br>예약 인원: ${reservation.people}`;
+        } else {
+            resultText = '해당하는 예약자가 조회되지 않습니다.';
         }
 
-        function getCookie(name) {
-            var nameEQ = name + "=";
-            var ca = document.cookie.split(';');
-            for(var i=0;i < ca.length;i++) {
-                var c = ca[i];
-                while (c.charAt(0)==' ') c = c.substring(1,c.length);
-                if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
-            }
-            return null;
-        }
-
-        function getReservations() {
-            var reservations = getCookie('reservations');
-            return reservations ? JSON.parse(reservations) : [];
-        }
-
-        function saveReservations(reservations) {
-            setCookie('reservations', JSON.stringify(reservations), 7); 
-        }
-
-        document.getElementById('reservationForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            var reservations = getReservations();
-            
-            var newReservation = {
-                region: document.getElementById('region').value,
-                restaurantName: document.getElementById('restaurantName').value,
-                date: document.getElementById('date').value,
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                people: document.getElementById('people').value
-            };
-
-            reservations.push(newReservation);
-            saveReservations(reservations);
-            alert('예약이 성공적으로 완료되었습니다.');
-            document.getElementById('reservationForm').reset();
-        });
-
-        function lookupReservation() {
-            var lookupName = document.getElementById('lookupName').value;
-            var reservations = getReservations();
-            var resultText = '';
-            
-            var reservation = reservations.find(r => r.name === lookupName);
-
-            if (reservation) {
-                resultText = `${reservation.name}님, 예약 확인 되었습니다.<br>예약 날짜: ${reservation.date}<br>예약 인원: ${reservation.people}`;
-            } else {
-                resultText = '해당하는 예약자가 조회되지 않습니다.';
-            }
-
-            document.getElementById('lookupResult').innerHTML = resultText;
-        }
-    </script>
+        document.getElementById('lookupResult').innerHTML = resultText;
+    }
+</script>
 </body>
 </html>
+
+
 
 
 
